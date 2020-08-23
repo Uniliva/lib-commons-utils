@@ -2,8 +2,8 @@
   <servers>
     <server>
       <id>OSSRH</id>
-      <username>JIRA_SONARTYPE_ID</username>
-      <password>JIRA_SONARTYPE_PWD</password>
+      <username>${JIRA_SONARTYPE_ID}</username>
+      <password>${JIRA_SONARTYPE_PWD}</password>
     </server>
   </servers>
    <profiles>
@@ -14,7 +14,7 @@
       </activation>
       <properties>
         <gpg.executable>gpg</gpg.executable>
-        <gpg.passphrase>GPG_PASSWORD</gpg.passphrase>
+        <gpg.passphrase>${GPG_PASSWORD}</gpg.passphrase>
       </properties>
     </profile>
   </profiles>
