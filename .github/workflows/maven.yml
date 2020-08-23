@@ -28,7 +28,13 @@ jobs:
        JIRA_SONARTYPE_ID: ${{secrets.JIRA_SONARTYPE_ID}}   
        JIRA_SONARTYPE_PWD: ${{secrets.JIRA_SONARTYPE_PWD}}
        GPG_PRIVATE_KEY: ${{secrets.GPG_PRIVATE_KEY}}   
-       
+     
+    - name: Install GPG
+      run: |
+        echo "Install gnupg"
+        sudo apt install gnupg -y
+        echo "Sucess in instalation gnupg"
+        
     - name:  Import private key gpg
       run: |
         echo "Start import"
