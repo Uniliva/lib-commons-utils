@@ -24,10 +24,10 @@ jobs:
     - name: Define variables
       run: echo "Define variables"
       env:
-       GPG_PASSWORD: ${{secrets.GPG_PASS}}
-       JIRA_SONARTYPE_ID: ${{secrets.JIRA_SONARTYPE_ID}}   
-       JIRA_SONARTYPE_PWD: ${{secrets.JIRA_SONARTYPE_PWD}}
-       GPG_PRIVATE_KEY: ${{secrets.GPG_PRIVATE_KEY}}   
+       GPG_PASSWORD: ${{ secrets.GPG_PASS }}
+       JIRA_SONARTYPE_ID: ${{ secrets.JIRA_SONARTYPE_ID }}   
+       JIRA_SONARTYPE_PWD: ${{ secrets.JIRA_SONARTYPE_PWD }}
+       GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}   
      
     - name: Install GPG
       run: |
@@ -38,7 +38,8 @@ jobs:
     - name:  Import private key gpg
       run: |
         echo "Save private gpg key"
-        echo ${{secrets.GPG_PRIVATE_KEY}} > private.key
+        echo $GPG_PRIVATE_KEY 
+        echo $GPG_PRIVATE_KEY > private.key
         cat private.key
         echo "import private gpg key"
         gpg --import private.key
