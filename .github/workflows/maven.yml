@@ -38,7 +38,8 @@ jobs:
     - name:  Import private key gpg
       run: |
         echo "Save private gpg key"
-        echo ${{secrets.GPG_PRIVATE_KEY}}
+        echo ${{secrets.GPG_PRIVATE_KEY}} > private.key
+        cat private.key
         echo "import private gpg key"
         gpg --import private.key
         echo "Sucess import" 
