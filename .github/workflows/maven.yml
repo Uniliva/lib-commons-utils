@@ -22,6 +22,7 @@ jobs:
         java-version: 1.8
 
     - name: Define variables
+      run: echo "Define variables"
       env:
        GPG_PASSWORD: ${{secrets.GPG_PASS}}
        JIRA_SONARTYPE_ID: ${{secrets.JIRA_SONARTYPE_ID}}   
