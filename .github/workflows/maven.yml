@@ -22,22 +22,27 @@ jobs:
         java-version: 1.8
 
     - name: Define variables
+      run: echo "Define variables"
       env:
-       GPG_PASSWORD: ${{secrets.GPG_PASS}}
-       JIRA_SONARTYPE_ID: ${{secrets.JIRA_SONARTYPE_ID}}   
-       JIRA_SONARTYPE_PWD: ${{secrets.JIRA_SONARTYPE_PWD}}
-       GPG_PRIVATE_KEY: ${{secrets.GPG_PRIVATE_KEY}}   
-    
+       GPG_PASSWORD: ${{ secrets.GPG_PASS }}
+       JIRA_SONARTYPE_ID: ${{ secrets.JIRA_SONARTYPE_ID }}   
+       JIRA_SONARTYPE_PWD: ${{ secrets.JIRA_SONARTYPE_PWD }}
+       GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}   
+         echo "$GPG_PRIVATE_KEY" 
+      
     - name: Install GPG
       run: |
         echo "Install gnupg"
-        apt install gnupg -y
+        sudo apt install gnupg -y
         echo "Sucess in instalation gnupg"
-       
+        
     - name:  Import private key gpg
       run: |
-        echo "Start import"
-        echo $GPG_PRIVATE_KEY > private.key
+        echo "Save private gpg key"
+        echo "$GPG_PRIVATE_KEY" 
+        echo "$GPG_PRIVATE_KEY" > private.key
+        cat private.key
+        echo "import private gpg key"
         gpg --import private.key
         echo "Sucess import" 
 
