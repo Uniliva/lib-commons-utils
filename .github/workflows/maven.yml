@@ -27,17 +27,12 @@ jobs:
         sudo apt install gnupg -y
         echo "Sucess in instalation gnupg"
         
-    - name:  Import private key gpg
-      run: |
-        echo "Save private gpg key"
-        echo "$GPG_PRIVATE_KEY" 
-        echo "$GPG_PRIVATE_KEY" > private.key
-        cat private.key
-        echo "import private gpg key"
-        gpg --import private.key
-        echo "Sucess import" 
+    - name: Import GPG key
+      id: import_gpg
+      uses: crazy-max/ghaction-import-gpg@v2
       env:
-        GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}  
+        GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+        PASSPHRASE: ${{ secrets.GPG_PASS }}
     
     - name: Build with Maven
       run: mvn clean deploy --file pom.xml
