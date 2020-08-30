@@ -64,13 +64,14 @@ public class UltronJsonUtils {
 	 * Classe que carrega um arquivo .json e tenta converter para uma classe de
 	 * acordo com o tipo passado.
 	 * 
-	 * @param <T>  - Classe que representa do tipo de objeto as ser deserealizado
+	 * @param <T>  - Classe que representa do tipo de objeto as ser deserializado
 	 * @param caminhoJson  Caminho a partir do classpath. <br>
 	 *                     Exemplo: (utron/src/main/resources/)
 	 *                     'entrada/agendamento-01.json'
-	 * @param tipoDoObjeto - Tipo do objeto
+	 * @param tipoObjeto - Tipo do objeto
 	 * @return Objeto de acordo com o tipo passado.
 	 */
+
 	public static <T> T paraObjViaArquivoJson(final String caminhoJson, final TypeReference<T> tipoObjeto) {
 		try {
 			return mapper.readValue(ResourceUtils.getFile(format("classpath:%s", caminhoJson)), tipoObjeto);
@@ -79,15 +80,14 @@ public class UltronJsonUtils {
 		}
 	}
 
+	
 	/**
-	 * <p>
 	 * Classe que o conteúdo de um json e tenta converter para uma classe de acordo
 	 * com o tipo passado.
-	 * 
-	 * @param <T>  - Classe que representa do tipo de objeto as ser deserealizado
+	 * @param <T>  - Classe que representa do tipo de objeto as ser deserializado
 	 * @param conteudoJson - String do Json do objeto
-	 * @param tipoObjeto  - Tipo do objeto
-	 * @return Objecto gerado com o Json
+	 * @param tipoObjeto - Tipo do objeto
+	 * @return 0bjeto gerado com o Json
 	 */
 	public static <T> T paraObjViaJson(final String conteudoJson, final TypeReference<T> tipoObjeto) {
 		try {
