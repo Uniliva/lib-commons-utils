@@ -67,7 +67,7 @@ public class UltronJsonUtils {
 	 * @param caminhoJson  Caminho a partir do classpath. <br>
 	 *                     Exemplo: (utron/src/main/resources/)
 	 *                     'entrada/agendamento-01.json'
-	 * @param tipoDoObjeto
+	 * @param tipoDoObjeto - Tipo do objeto {@link TypeReference<T>}
 	 * @return Objeto de acordo com o tipo passado.
 	 */
 	public static <T> T paraObjViaArquivoJson(final String caminhoJson, final TypeReference<T> tipoObjeto) {
@@ -83,9 +83,9 @@ public class UltronJsonUtils {
 	 * Classe que o conteúdo de um json e tenta converter para uma classe de acordo
 	 * com o tipo passado.
 	 *
-	 * @param conteudoJson
-	 * @param tipoObjeto
-	 * @return
+	 * @param conteudoJson - String do Json do objeto
+	 * @param tipoObjeto  - Tipo do objeto {@link TypeReference<T>}
+	 * @return Objecto gerado com o Json
 	 */
 	public static <T> T paraObjViaJson(final String conteudoJson, final TypeReference<T> tipoObjeto) {
 		try {

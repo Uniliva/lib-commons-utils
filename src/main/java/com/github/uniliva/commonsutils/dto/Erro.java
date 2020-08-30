@@ -11,7 +11,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Erro extends BaseDto {
+public class Erro extends BaseDTO {
 	private static final long serialVersionUID = -6487111911459784100L;
 
 	private String mensagem;

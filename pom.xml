@@ -20,7 +20,7 @@
 
 	<groupId>com.github.uniliva</groupId>
 	<artifactId>lib-commons-utils</artifactId>
-	<version>1.0.1</version>
+	<version>1.2.0</version>
 	
 	<packaging>jar</packaging>
 
