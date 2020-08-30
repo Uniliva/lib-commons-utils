@@ -37,8 +37,7 @@ jobs:
     - name: Configure settings xml
       uses: s4u/maven-settings-action@v2.1.0
       with:
-       override: true
-       servers: '[{"id": "ossrh", "username": ${{ secrets.JIRA_SONARTYPE_ID }}, "password": ${{ secrets.JIRA_SONARTYPE_PWD }}}]'
+       servers: '[{"id": "ossrh", "username": "${{ secrets.JIRA_SONARTYPE_ID }}", "password": "${{ secrets.JIRA_SONARTYPE_PWD }}"}]'
     
     - name: Build with Maven
       run: |
