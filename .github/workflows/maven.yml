@@ -33,10 +33,16 @@ jobs:
       env:
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
         PASSPHRASE: ${{ secrets.GPG_PASS }}
+      
+    - name: Configure settings xml
+      uses: s4u/maven-settings-action@v2.1.0
+      with:
+       servers: '[{"id": "ossrh", "username": ${{ secrets.JIRA_SONARTYPE_ID }}, "password": ${{ secrets.JIRA_SONARTYPE_PWD }}}]'
     
     - name: Build with Maven
-      run: mvn clean deploy --file pom.xml
+      run: |
+        cat ~/.m2/settings.xml
+        echo "--------------------------------------------------"
+        mvn clean deploy --file pom.xml
       env:
        GPG_PASSWORD: ${{ secrets.GPG_PASS }}
-       JIRA_SONARTYPE_ID: ${{ secrets.JIRA_SONARTYPE_ID }}   
-       JIRA_SONARTYPE_PWD: ${{ secrets.JIRA_SONARTYPE_PWD }}
