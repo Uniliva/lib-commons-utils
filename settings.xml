@@ -13,7 +13,7 @@
       </activation>
       <properties>
         <gpg.executable>gpg</gpg.executable>
-        <gpg.passphrase>{GPG_PASSWORD}</gpg.passphrase>
+        <gpg.passphrase>${GPG_PASSWORD}</gpg.passphrase>
       </properties>
     </profile>
   </profiles>
