@@ -20,12 +20,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-  
-    - name: Install GPG
-      run: |
-        echo "Install gnupg"
-        sudo apt install gnupg -y
-        echo "Sucess in instalation gnupg"
         
     - name: Import GPG key
       id: import_gpg
@@ -38,11 +32,11 @@ jobs:
       uses: s4u/maven-settings-action@v2.1.0
       with:
        servers: '[{"id": "ossrh", "username": "${{ secrets.JIRA_SONARTYPE_ID }}", "password": "${{ secrets.JIRA_SONARTYPE_PWD }}"}]'
-    
+       githubServer : false
+     
+     
     - name: Build with Maven
       run: |
         cat /home/runner/.m2/settings.xml
         echo "--------------------------------------------------"
         mvn clean deploy --file pom.xml
-      env:
-       GPG_PASSWORD: ${{ secrets.GPG_PASS }}
