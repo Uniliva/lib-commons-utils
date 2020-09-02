@@ -15,7 +15,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.github.uniliva.commonsutils.exception.ParseException;
 import com.github.uniliva.commonsutils.exception.ValidacaoException;
 
-public class UltronJsonUtils {
+public class JsonUtils {
 	private static ObjectMapper mapper;
 
 	static {
@@ -24,7 +24,7 @@ public class UltronJsonUtils {
 		mapper.registerModule(new JavaTimeModule());
 	}
 
-	private UltronJsonUtils() {
+	private JsonUtils() {
 		super();
 	}
 
