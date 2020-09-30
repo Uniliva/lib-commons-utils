@@ -24,9 +24,10 @@ jobs:
     - name: Import GPG key
       id: import_gpg
       uses: crazy-max/ghaction-import-gpg@v3
-      env:
-        GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-        PASSPHRASE: ${{ secrets.GPG_PASS }}
+      with:
+        gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+        passphrase: ${{ secrets.GPG_PASS }}
+          
       
     - name: Configure settings xml
       uses: s4u/maven-settings-action@v2.1.0
